@@ -1,0 +1,16 @@
+.github/workflows/keep-alive.yml
+name: Keep Streamlit Alive
+
+on:
+  schedule:
+    # Menjalankan skrip setiap 30 menit sekali
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # Memungkinkan Anda menjalankan secara manual kapan saja
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Streamlit App
+        run: |
+          curl -I https://harga-wajar-saham.streamlit.app
